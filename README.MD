@@ -47,6 +47,58 @@ Send some requests:
 curl http://<PUBLIC-IP-ADDRESS>:8080/albums
 ```
 
+### Product API
+
+Base URL: `http://<PUBLIC-IP-ADDRESS>:8080`
+
+- Seeded data includes product `1`.
+- New products are created via POST `/products` and get auto-incremented IDs.
+
+Endpoints:
+
+1) Create product
+
+```bash
+curl -i -X POST http://<PUBLIC-IP-ADDRESS>:8080/products \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Widget 2",
+    "description": "Second product",
+    "price": 12.49
+  }'
+```
+
+Expected: `201 Created` with the new product JSON, e.g. `{ "id": 2, ... }`.
+
+2) Get product by id
+
+```bash
+curl -i http://<PUBLIC-IP-ADDRESS>:8080/products/1
+```
+
+3) Update product details (for an existing id)
+
+```bash
+curl -i -X POST http://<PUBLIC-IP-ADDRESS>:8080/products/1/details \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Widget Alpha",
+    "description": "First gen widget",
+    "price": 12.49
+  }'
+```
+
+Expected: `204 No Content`. Then verify with a GET to the same id.
+
+Postman
+
+- Create an environment variable `baseUrl` = `http://<PUBLIC-IP-ADDRESS>:8080`.
+- Requests:
+  - POST `{{baseUrl}}/products` with raw JSON body (application/json)
+  - GET `{{baseUrl}}/products/1`
+  - POST `{{baseUrl}}/products/1/details` with raw JSON body
+- Tip: Use Postman’s "Code" button to copy cURL for each request. See [Postman](https://www.postman.com/).
+
 ## Clean Up
 ```
 terraform destroy -auto-approve
