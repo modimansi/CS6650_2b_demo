@@ -10,7 +10,7 @@ func main() {
 	router := gin.Default()
 
 	store := product.NewStore()
-	store.SeedSample()
+    store.SeedBulk(100000)
 	handlers := product.NewHandlers(store)
 
 	product.Register(router, handlers)

@@ -3,6 +3,7 @@ package product
 import (
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,6 +14,25 @@ type Handlers struct {
 
 func NewHandlers(store *Store) *Handlers {
 	return &Handlers{store: store}
+}
+
+// GET /products
+func (h *Handlers) ListProducts(c *gin.Context) {
+	name := c.Query("name")
+	category := c.Query("category")
+	const maxCheck = 100
+	const maxReturn = 20
+
+	start := time.Now()
+	products, total := h.store.SearchLimited(name, category, maxCheck, maxReturn)
+	elapsed := time.Since(start)
+
+	resp := SearchResponse{
+		Products:   products,
+		TotalFound: total,
+		SearchTime: elapsed.String(),
+	}
+	c.JSON(http.StatusOK, resp)
 }
 
 // POST /products

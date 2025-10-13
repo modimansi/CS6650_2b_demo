@@ -34,6 +34,9 @@ module "ecs" {
   log_group_name     = module.logging.log_group_name
   ecs_count          = var.ecs_count
   region             = var.aws_region
+  # Explicitly set Fargate task size
+  cpu                = "256"
+  memory             = "512"
 }
 
 
