@@ -17,6 +17,14 @@ module "logging" {
   retention_in_days = var.log_retention_days
 }
 
+# Application Load Balancer for ECS service
+module "alb" {
+  source            = "./modules/alb"
+  service_name      = var.service_name
+  container_port    = var.container_port
+  health_check_path = "/health"
+}
+
 # Reuse an existing IAM role for ECS tasks
 data "aws_iam_role" "lab_role" {
   name = "LabRole"
@@ -37,6 +45,14 @@ module "ecs" {
   # Explicitly set Fargate task size
   cpu                = "256"
   memory             = "512"
+
+  # Load balancer + autoscaling
+  target_group_arn   = module.alb.target_group_arn
+  min_capacity       = 2
+  max_capacity       = 4
+  target_cpu         = 10
+  scale_in_cooldown  = 300
+  scale_out_cooldown = 60
 }
 
 

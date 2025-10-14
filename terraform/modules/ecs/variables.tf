@@ -60,3 +60,33 @@ variable "memory" {
   default     = "512"
   description = "Memory (MiB)"
 }
+
+variable "target_group_arn" {
+  type        = string
+  description = "ALB Target Group ARN for service"
+}
+
+variable "min_capacity" {
+  type        = number
+  default     = 2
+}
+
+variable "max_capacity" {
+  type        = number
+  default     = 4
+}
+
+variable "target_cpu" {
+  type        = number
+  default     = 10
+}
+
+variable "scale_in_cooldown" {
+  type        = number
+  default     = 300
+}
+
+variable "scale_out_cooldown" {
+  type        = number
+  default     = 300
+}
