@@ -61,32 +61,22 @@ variable "memory" {
   description = "Memory (MiB)"
 }
 
-variable "target_group_arn" {
+# Load balancer and auto-scaling variables removed for simple deployment
+
+variable "sns_topic_arn" {
   type        = string
-  description = "ALB Target Group ARN for service"
+  default     = ""
+  description = "SNS Topic ARN for async orders"
 }
 
-variable "min_capacity" {
-  type        = number
-  default     = 2
+variable "sqs_queue_url" {
+  type        = string
+  default     = ""
+  description = "SQS Queue URL for order processing"
 }
 
-variable "max_capacity" {
+variable "worker_count" {
   type        = number
-  default     = 4
-}
-
-variable "target_cpu" {
-  type        = number
-  default     = 10
-}
-
-variable "scale_in_cooldown" {
-  type        = number
-  default     = 300
-}
-
-variable "scale_out_cooldown" {
-  type        = number
-  default     = 300
+  default     = 1
+  description = "Number of concurrent payment processing workers (goroutines)"
 }

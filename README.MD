@@ -185,17 +185,105 @@ curl -i -X POST http://<PUBLIC-IP-ADDRESS>:8080/products/9999/details \
 
 Postman: Create an environment with `baseUrl = http://<PUBLIC-IP-ADDRESS>:8080` and add requests for each case above. You can export the collection (Collections → ... → Export) and share it with your team.
 
+### Orders API (Synchronous)
+
+⚠️ **Note**: This endpoint blocks for ~3 seconds during payment processing simulation.
+
+1) Create order (synchronous processing)
+
+```bash
+curl -i -X POST http://<PUBLIC-IP-ADDRESS>:8080/orders/sync \
+  -H "Content-Type: application/json" \
+  -d '{
+    "order_id": "ORD-12345",
+    "customer_id": 67890,
+    "status": "pending",
+    "items": [
+      {
+        "product_id": "PROD-001",
+        "quantity": 2,
+        "price": 29.99
+      }
+    ]
+  }'
+```
+
+Expected: `200 OK` after ~3 seconds with response:
+```json
+{
+  "order_id": "ORD-12345",
+  "status": "completed",
+  "processing_time": "3.001234567s",
+  "message": "Order processed successfully"
+}
+```
+
+### Orders API (Asynchronous)
+
+⚠️ **Note**: This endpoint returns immediately (~50-100ms) and processes orders asynchronously.
+
+1) Create order (asynchronous processing)
+
+```bash
+curl -i -X POST http://<PUBLIC-IP-ADDRESS>:8080/orders/async \
+  -H "Content-Type: application/json" \
+  -d '{
+    "order_id": "ORD-12345",
+    "customer_id": 67890,
+    "status": "pending",
+    "items": [
+      {
+        "product_id": "PROD-001",
+        "quantity": 2,
+        "price": 29.99
+      }
+    ]
+  }'
+```
+
+Expected: `202 Accepted` immediately with response:
+```json
+{
+  "order_id": "ORD-12345",
+  "status": "queued",
+  "message": "Order queued for processing"
+}
+```
+
+The endpoint simulates payment processing using a buffered channel approach (not just sleep):
+- Spawns a goroutine with a 3-second timer
+- Uses buffered channel to communicate result
+- Blocks HTTP connection until processing completes
+
+2) Test with timing
+
+```bash
+time curl -X POST http://<PUBLIC-IP-ADDRESS>:8080/orders/sync \
+  -H "Content-Type: application/json" \
+  -d @testing/sample_order_requests.json
+```
+
+For more details, see `src/orders/README.md` and `API_ENDPOINTS.md`.
+
 ## Where things are
 
 - Server code: `src/`
   - Product handlers: `src/product/*.go`
+  - Order handlers: `src/orders/*.go`
   - HTTP entrypoint: `src/main.go`
   - Dockerfile: `src/Dockerfile`
 - Infrastructure (Terraform): `terraform/`
   - Main wiring: `terraform/main.tf`
   - Providers: `terraform/provider.tf`
   - Modules: `terraform/modules/*`
-- Load testing: `testing/product_locustfile.py`
+- Load testing: 
+  - Products: `testing/product_locustfile.py`
+  - Orders: `testing/orders_locustfile.py`
+- Test scripts: `testing/test_orders.sh`
+- Documentation:
+  - API docs: `API_ENDPOINTS.md`
+  - Infrastructure: `INFRASTRUCTURE_SETUP.md`
+  - Orders details: `src/orders/README.md`
 
 ## Keeping large and sensitive files out of git
 
@@ -211,6 +299,34 @@ __pycache__/
 ```
 
 Recommended: keep secrets in AWS Secrets Manager or local `.env` not checked in; use a separate, private `.tfvars` for environment-specific values.
+
+### Worker Scaling (Phase 5)
+
+Scale the number of concurrent payment processing workers:
+
+```bash
+cd terraform
+
+# Start with 1 worker (baseline)
+terraform apply -var="worker_count=1"
+
+# Scale to 5 workers
+terraform apply -var="worker_count=5"
+
+# Scale to 20 workers
+terraform apply -var="worker_count=20"
+
+# Scale to 100 workers
+terraform apply -var="worker_count=100"
+```
+
+**Processing Rates:**
+- 1 worker: 0.33 orders/sec (20 orders/min)
+- 5 workers: 1.67 orders/sec (100 orders/min)
+- 20 workers: 6.67 orders/sec (400 orders/min)
+- 100 workers: 33.33 orders/sec (2000 orders/min)
+
+For detailed scaling guide, see `terraform/SCALING_GUIDE.md`.
 
 ## Clean Up
 ```

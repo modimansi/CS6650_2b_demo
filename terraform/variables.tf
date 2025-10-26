@@ -21,12 +21,20 @@ variable "container_port" {
 }
 
 variable "ecs_count" {
-  type    = number
-  default = 1
+  type        = number
+  default     = 1
+  description = "Number of ECS tasks to run"
 }
 
 # How long to keep logs
 variable "log_retention_days" {
   type    = number
   default = 7
+}
+
+# Number of concurrent payment processing workers
+variable "worker_count" {
+  type        = number
+  default     = 1
+  description = "Number of concurrent payment processing workers (goroutines). Increase to scale throughput."
 }

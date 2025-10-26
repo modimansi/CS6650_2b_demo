@@ -13,4 +13,18 @@ variable "health_check_path" {
   description = "Health check path for targets"
 }
 
+variable "vpc_id" {
+  type        = string
+  description = "VPC ID for ALB"
+}
+
+variable "public_subnet_ids" {
+  type        = list(string)
+  description = "Public subnet IDs for ALB"
+}
+
+variable "alb_security_group_id" {
+  type        = string
+  description = "Security group ID for ALB"
+}
 

@@ -17,12 +17,10 @@ module "logging" {
   retention_in_days = var.log_retention_days
 }
 
-# Application Load Balancer for ECS service
-module "alb" {
-  source            = "./modules/alb"
-  service_name      = var.service_name
-  container_port    = var.container_port
-  health_check_path = "/health"
+# Messaging infrastructure (SNS + SQS)
+module "messaging" {
+  source       = "./modules/messaging"
+  service_name = var.service_name
 }
 
 # Reuse an existing IAM role for ECS tasks
@@ -30,29 +28,27 @@ data "aws_iam_role" "lab_role" {
   name = "LabRole"
 }
 
+# Simple ECS deployment (no ALB, no auto-scaling)
 module "ecs" {
   source             = "./modules/ecs"
   service_name       = var.service_name
   image              = "${module.ecr.repository_url}:latest"
   container_port     = var.container_port
-  subnet_ids         = module.network.subnet_ids
-  security_group_ids = [module.network.security_group_id]
+  subnet_ids         = module.network.public_subnet_ids  # Use public subnets for direct access
+  security_group_ids = [module.network.ecs_security_group_id]
   execution_role_arn = data.aws_iam_role.lab_role.arn
   task_role_arn      = data.aws_iam_role.lab_role.arn
   log_group_name     = module.logging.log_group_name
-  ecs_count          = var.ecs_count
+  ecs_count          = 1  # Single task
   region             = var.aws_region
   # Explicitly set Fargate task size
   cpu                = "256"
   memory             = "512"
-
-  # Load balancer + autoscaling
-  target_group_arn   = module.alb.target_group_arn
-  min_capacity       = 2
-  max_capacity       = 4
-  target_cpu         = 10
-  scale_in_cooldown  = 300
-  scale_out_cooldown = 60
+  # Pass SNS/SQS configuration as environment variables
+  sns_topic_arn      = module.messaging.sns_topic_arn
+  sqs_queue_url      = module.messaging.sqs_queue_url
+  # Pass worker count for scaling payment processors
+  worker_count       = var.worker_count
 }
 
 

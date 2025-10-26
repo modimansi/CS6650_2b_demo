@@ -23,6 +23,25 @@ resource "aws_ecs_task_definition" "this" {
       containerPort = var.container_port
     }]
 
+    environment = [
+      {
+        name  = "AWS_REGION"
+        value = var.region
+      },
+      {
+        name  = "SNS_TOPIC_ARN"
+        value = var.sns_topic_arn
+      },
+      {
+        name  = "SQS_QUEUE_URL"
+        value = var.sqs_queue_url
+      },
+      {
+        name  = "WORKER_COUNT"
+        value = tostring(var.worker_count)
+      }
+    ]
+
     logConfiguration = {
       logDriver = "awslogs"
       options = {
@@ -34,7 +53,7 @@ resource "aws_ecs_task_definition" "this" {
   }])
 }
 
-# ECS Service
+# ECS Service (simple deployment without load balancer or auto-scaling)
 resource "aws_ecs_service" "this" {
   name            = var.service_name
   cluster         = aws_ecs_cluster.this.id
@@ -42,43 +61,9 @@ resource "aws_ecs_service" "this" {
   desired_count   = var.ecs_count
   launch_type     = "FARGATE"
 
-  load_balancer {
-    target_group_arn = var.target_group_arn
-    container_name   = "${var.service_name}-container"
-    container_port   = var.container_port
-  }
-
-  health_check_grace_period_seconds = 60
-
   network_configuration {
-    subnets         = var.subnet_ids
-    security_groups = var.security_group_ids
-    assign_public_ip = true
-  }
-}
-
-# Application Autoscaling for ECS desired count
-resource "aws_appautoscaling_target" "ecs" {
-  service_namespace  = "ecs"
-  resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
-  scalable_dimension = "ecs:service:DesiredCount"
-  min_capacity       = var.min_capacity
-  max_capacity       = var.max_capacity
-}
-
-resource "aws_appautoscaling_policy" "cpu_target" {
-  name               = "${var.service_name}-cpu-target"
-  policy_type        = "TargetTrackingScaling"
-  service_namespace  = aws_appautoscaling_target.ecs.service_namespace
-  resource_id        = aws_appautoscaling_target.ecs.resource_id
-  scalable_dimension = aws_appautoscaling_target.ecs.scalable_dimension
-
-  target_tracking_scaling_policy_configuration {
-    predefined_metric_specification {
-      predefined_metric_type = "ECSServiceAverageCPUUtilization"
-    }
-    target_value       = var.target_cpu
-    scale_in_cooldown  = var.scale_in_cooldown
-    scale_out_cooldown = var.scale_out_cooldown
+    subnets          = var.subnet_ids
+    security_groups  = var.security_group_ids
+    assign_public_ip = true  # Assign public IP for direct access
   }
 }
