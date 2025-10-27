@@ -33,6 +33,16 @@ output "sqs_queue_url" {
   value       = module.messaging.sqs_queue_url
 }
 
+output "lambda_function_name" {
+  description = "Lambda function name"
+  value       = module.lambda.function_name
+}
+
+output "lambda_log_group" {
+  description = "Lambda CloudWatch log group"
+  value       = module.lambda.log_group_name
+}
+
 output "access_instructions" {
   description = "Instructions to access the ECS task"
   value       = <<-EOT
@@ -48,5 +58,10 @@ output "access_instructions" {
     Endpoints:
     - Sync:  POST http://<PUBLIC-IP>:8080/orders/sync  (blocks for 3s)
     - Async: POST http://<PUBLIC-IP>:8080/orders/async (returns immediately)
+    
+    Lambda Processing:
+    - Function: ${module.lambda.function_name}
+    - Logs: aws logs tail ${module.lambda.log_group_name} --follow
+    - SNS triggers Lambda directly (no SQS polling needed)
   EOT
 }

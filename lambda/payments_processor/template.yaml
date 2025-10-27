@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Payment Processor Lambda for local testing
+
+Resources:
+  PaymentProcessorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: bootstrap
+      Runtime: provided.al2
+      MemorySize: 512
+      Timeout: 10
+      Environment:
+        Variables:
+          AWS_REGION: us-west-2
+

@@ -1,0 +1,16 @@
+# Compiled binary
+bootstrap
+
+# Deployment package
+function.zip
+
+# Go vendor
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+

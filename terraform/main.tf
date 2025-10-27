@@ -23,6 +23,19 @@ module "messaging" {
   service_name = var.service_name
 }
 
+# Lambda function for serverless order processing (Phase 6)
+module "lambda" {
+  source = "./modules/lambda"
+
+  service_name       = var.service_name
+  lambda_zip_path    = "../lambda/payments_processor/function.zip"
+  sns_topic_arn      = module.messaging.sns_topic_arn
+  memory_size        = 512
+  timeout            = 10
+  region             = var.aws_region
+  log_retention_days = var.log_retention_days
+}
+
 # Reuse an existing IAM role for ECS tasks
 data "aws_iam_role" "lab_role" {
   name = "LabRole"
