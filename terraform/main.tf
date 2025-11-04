@@ -23,6 +23,18 @@ module "messaging" {
   service_name = var.service_name
 }
 
+# RDS MySQL Database
+module "rds" {
+  source                = "./modules/rds"
+  service_name          = var.service_name
+  vpc_id                = module.network.vpc_id
+  private_subnet_ids    = module.network.private_subnet_ids
+  ecs_security_group_id = module.network.ecs_security_group_id
+  database_name         = var.database_name
+  database_username     = var.database_username
+  database_password     = var.database_password
+}
+
 # Reuse an existing IAM role for ECS tasks
 data "aws_iam_role" "lab_role" {
   name = "LabRole"
@@ -49,6 +61,8 @@ module "ecs" {
   sqs_queue_url      = module.messaging.sqs_queue_url
   # Pass worker count for scaling payment processors
   worker_count       = var.worker_count
+  # Pass database connection string
+  database_url       = module.rds.connection_string
 }
 
 

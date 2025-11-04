@@ -39,6 +39,14 @@ resource "aws_ecs_task_definition" "this" {
       {
         name  = "WORKER_COUNT"
         value = tostring(var.worker_count)
+      },
+      {
+        name  = "DATABASE_URL"
+        value = var.database_url
+      },
+      {
+        name  = "INIT_DB_SCHEMA"
+        value = "true"
       }
     ]
 

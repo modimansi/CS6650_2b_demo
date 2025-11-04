@@ -38,3 +38,23 @@ variable "worker_count" {
   default     = 1
   description = "Number of concurrent payment processing workers (goroutines). Increase to scale throughput."
 }
+
+# RDS Database Configuration
+variable "database_name" {
+  type        = string
+  default     = "shopping"
+  description = "Name of the database to create"
+}
+
+variable "database_username" {
+  type        = string
+  default     = "dbadmin"
+  description = "Master username for the database"
+}
+
+variable "database_password" {
+  type        = string
+  default     = ""
+  description = "Master password for the database (leave empty for auto-generated password)"
+  sensitive   = true
+}

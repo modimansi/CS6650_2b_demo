@@ -80,3 +80,10 @@ variable "worker_count" {
   default     = 1
   description = "Number of concurrent payment processing workers (goroutines)"
 }
+
+variable "database_url" {
+  type        = string
+  default     = ""
+  description = "Database connection string (MySQL or PostgreSQL)"
+  sensitive   = true
+}

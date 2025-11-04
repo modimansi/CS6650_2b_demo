@@ -33,6 +33,40 @@ output "sqs_queue_url" {
   value       = module.messaging.sqs_queue_url
 }
 
+# RDS Database Outputs
+output "rds_endpoint" {
+  description = "RDS MySQL endpoint (host:port)"
+  value       = module.rds.db_instance_endpoint
+}
+
+output "rds_address" {
+  description = "RDS MySQL hostname"
+  value       = module.rds.db_instance_address
+}
+
+output "rds_database_name" {
+  description = "Name of the database"
+  value       = module.rds.db_name
+}
+
+output "rds_username" {
+  description = "Master username for the database"
+  value       = module.rds.db_username
+  sensitive   = true
+}
+
+output "rds_password" {
+  description = "Master password for the database"
+  value       = module.rds.db_password
+  sensitive   = true
+}
+
+output "rds_connection_string" {
+  description = "Full MySQL connection string"
+  value       = module.rds.connection_string
+  sensitive   = true
+}
+
 output "access_instructions" {
   description = "Instructions to access the ECS task"
   value       = <<-EOT
@@ -48,5 +82,11 @@ output "access_instructions" {
     Endpoints:
     - Sync:  POST http://<PUBLIC-IP>:8080/orders/sync  (blocks for 3s)
     - Async: POST http://<PUBLIC-IP>:8080/orders/async (returns immediately)
+    - Cart:  POST http://<PUBLIC-IP>:8080/shopping-carts (requires database)
+    
+    Database Connection:
+    - Endpoint: Use 'terraform output rds_endpoint' to get connection details
+    - Username: Use 'terraform output -raw rds_username' 
+    - Password: Use 'terraform output -raw rds_password'
   EOT
 }
