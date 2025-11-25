@@ -1,0 +1,185 @@
+[
+  {
+    "test": "create_then_read",
+    "cart_id": "b022a5eb-09c3-4285-824d-89b83eca1763",
+    "create_time_ms": 1078.2279968261719,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      87.24331855773926,
+      144.8500156402588,
+      223.07252883911133,
+      296.86546325683594,
+      357.3260307312012
+    ],
+    "timestamp": "2025-11-04T08:02:33.911976+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "5dcc3b3c-db5a-4b60-9131-89b561b6f809",
+    "product_id": 925,
+    "add_time_ms": 60.78791618347168,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:02:34.444094+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "a2a40533-9921-41f4-b632-0c8b98ecd552",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 26,
+        "time_ms": 61.30099296569824,
+        "success": true
+      },
+      {
+        "product_id": 93,
+        "time_ms": 55.840253829956055,
+        "success": true
+      },
+      {
+        "product_id": 49,
+        "time_ms": 39.952754974365234,
+        "success": true
+      },
+      {
+        "product_id": 41,
+        "time_ms": 54.72517013549805,
+        "success": true
+      },
+      {
+        "product_id": 74,
+        "time_ms": 41.010141372680664,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:02:35.021957+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "d40545e2-e388-4301-a12e-58f41fff3971",
+    "create_time_ms": 51.95450782775879,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      35.98976135253906,
+      94.12455558776855,
+      169.90017890930176,
+      218.2638645172119,
+      292.99283027648926
+    ],
+    "timestamp": "2025-11-04T08:02:35.592206+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "4160ee57-071d-4966-8ba1-9d8bf2b7daef",
+    "product_id": 553,
+    "add_time_ms": 40.790557861328125,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:02:36.089085+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "f36e1905-7fab-4649-9d88-aaeb02a88642",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 31,
+        "time_ms": 39.62898254394531,
+        "success": true
+      },
+      {
+        "product_id": 18,
+        "time_ms": 59.896230697631836,
+        "success": true
+      },
+      {
+        "product_id": 14,
+        "time_ms": 52.88076400756836,
+        "success": true
+      },
+      {
+        "product_id": 42,
+        "time_ms": 53.26247215270996,
+        "success": true
+      },
+      {
+        "product_id": 99,
+        "time_ms": 55.59539794921875,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:02:36.665235+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "16290551-923e-4e13-ad3b-b559ef6c9f1f",
+    "create_time_ms": 49.72076416015625,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      36.09609603881836,
+      108.23678970336914,
+      154.59322929382324,
+      206.77542686462402,
+      267.66300201416016
+    ],
+    "timestamp": "2025-11-04T08:02:37.195472+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "3b7057ed-4613-4705-a169-a25723fdf3f5",
+    "product_id": 469,
+    "add_time_ms": 40.85731506347656,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:02:37.648177+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "c4d5e957-7362-4f1a-9b63-b0bb6119cc82",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 90,
+        "time_ms": 47.80101776123047,
+        "success": true
+      },
+      {
+        "product_id": 27,
+        "time_ms": 41.595458984375,
+        "success": true
+      },
+      {
+        "product_id": 94,
+        "time_ms": 36.04555130004883,
+        "success": true
+      },
+      {
+        "product_id": 61,
+        "time_ms": 42.98090934753418,
+        "success": true
+      },
+      {
+        "product_id": 88,
+        "time_ms": 37.02187538146973,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:02:38.147070+00:00"
+  }
+]

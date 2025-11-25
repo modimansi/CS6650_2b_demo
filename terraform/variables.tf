@@ -38,3 +38,36 @@ variable "worker_count" {
   default     = 1
   description = "Number of concurrent payment processing workers (goroutines). Increase to scale throughput."
 }
+
+# RDS Database Configuration
+variable "database_name" {
+  type        = string
+  default     = "shopping"
+  description = "Name of the database to create"
+}
+
+variable "database_username" {
+  type        = string
+  default     = "dbadmin"
+  description = "Master username for the database"
+}
+
+variable "database_password" {
+  type        = string
+  default     = ""
+  description = "Master password for the database (leave empty for auto-generated password)"
+  sensitive   = true
+}
+
+# DynamoDB Configuration
+variable "enable_dynamodb_pitr" {
+  type        = bool
+  default     = false
+  description = "Enable point-in-time recovery for DynamoDB tables"
+}
+
+variable "create_dynamodb_metrics_table" {
+  type        = bool
+  default     = false
+  description = "Create a separate DynamoDB table for storing performance metrics"
+}

@@ -1,0 +1,612 @@
+[
+  {
+    "test": "create_then_read",
+    "cart_id": "6d1576ab-d457-4ec4-8ac0-1585346e1ec5",
+    "create_time_ms": 122.94793128967285,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      89.1273021697998,
+      158.86306762695312,
+      209.72514152526855,
+      255.31244277954102,
+      320.2054500579834
+    ],
+    "timestamp": "2025-11-04T08:04:09.004560+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "e646d538-dbab-4c87-ae78-4a1c2bc58ede",
+    "product_id": 631,
+    "add_time_ms": 47.67584800720215,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:09.516267+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "85357d73-b0c5-4c0b-8ad0-06895598b9bd",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 99,
+        "time_ms": 63.60125541687012,
+        "success": true
+      },
+      {
+        "product_id": 7,
+        "time_ms": 61.028242111206055,
+        "success": true
+      },
+      {
+        "product_id": 83,
+        "time_ms": 43.929338455200195,
+        "success": true
+      },
+      {
+        "product_id": 46,
+        "time_ms": 41.19229316711426,
+        "success": true
+      },
+      {
+        "product_id": 78,
+        "time_ms": 46.28491401672363,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:10.096817+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "f95129f1-4540-405d-b7b6-16a77348b16c",
+    "create_time_ms": 51.91493034362793,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      44.98910903930664,
+      137.88747787475586,
+      189.93902206420898,
+      261.7678642272949,
+      313.5218620300293
+    ],
+    "timestamp": "2025-11-04T08:04:10.700322+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "3bf967f4-9771-4912-b200-3c3e0ce65298",
+    "product_id": 364,
+    "add_time_ms": 48.26974868774414,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:11.182790+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "7c1bde4c-de9c-4b31-a341-d47f09e8bab0",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 98,
+        "time_ms": 50.368309020996094,
+        "success": true
+      },
+      {
+        "product_id": 13,
+        "time_ms": 46.796560287475586,
+        "success": true
+      },
+      {
+        "product_id": 11,
+        "time_ms": 38.48600387573242,
+        "success": true
+      },
+      {
+        "product_id": 4,
+        "time_ms": 56.1373233795166,
+        "success": true
+      },
+      {
+        "product_id": 72,
+        "time_ms": 57.71899223327637,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:11.763885+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "ffb74fb9-1c41-42ed-bf4e-8ca0a936ffc9",
+    "create_time_ms": 52.60276794433594,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      59.08465385437012,
+      136.0914707183838,
+      186.11884117126465,
+      245.0883388519287,
+      289.4573211669922
+    ],
+    "timestamp": "2025-11-04T08:04:12.321507+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "40e3e5d1-6495-4391-a484-edc8910e892b",
+    "product_id": 867,
+    "add_time_ms": 48.126220703125,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:15.032127+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "c61df33e-2a74-494a-9d0f-33845032022e",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 43,
+        "time_ms": 42.51217842102051,
+        "success": true
+      },
+      {
+        "product_id": 17,
+        "time_ms": 58.88795852661133,
+        "success": true
+      },
+      {
+        "product_id": 85,
+        "time_ms": 43.657779693603516,
+        "success": true
+      },
+      {
+        "product_id": 41,
+        "time_ms": 39.1695499420166,
+        "success": true
+      },
+      {
+        "product_id": 94,
+        "time_ms": 52.43849754333496,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:15.642098+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "f2fbce61-931c-4bc2-984e-890f7b36afb5",
+    "create_time_ms": 52.08110809326172,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      35.09235382080078,
+      93.66893768310547,
+      156.91447257995605,
+      229.54916954040527,
+      289.5357608795166
+    ],
+    "timestamp": "2025-11-04T08:04:16.199532+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "12ddbbc5-f46b-45dc-b782-e30bf82f1e3c",
+    "product_id": 367,
+    "add_time_ms": 54.74686622619629,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:16.729495+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "ea9ca264-a7e2-4820-ade4-20bc56d3b2fe",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 46,
+        "time_ms": 50.115346908569336,
+        "success": true
+      },
+      {
+        "product_id": 83,
+        "time_ms": 39.90507125854492,
+        "success": true
+      },
+      {
+        "product_id": 80,
+        "time_ms": 39.292335510253906,
+        "success": true
+      },
+      {
+        "product_id": 15,
+        "time_ms": 39.27421569824219,
+        "success": true
+      },
+      {
+        "product_id": 76,
+        "time_ms": 41.30387306213379,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:17.248464+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "d66c79bc-4b78-4dd8-acad-2f0742cb5b3a",
+    "create_time_ms": 52.48546600341797,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      35.44211387634277,
+      92.12279319763184,
+      138.27967643737793,
+      188.10558319091797,
+      255.58710098266602
+    ],
+    "timestamp": "2025-11-04T08:04:17.787815+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "8cd9711b-a1e9-4a60-8647-8091f4a692cc",
+    "product_id": 320,
+    "add_time_ms": 38.53344917297363,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:18.272385+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "776037e1-ba79-47f4-9151-a8d1add4fbbd",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 37,
+        "time_ms": 66.05720520019531,
+        "success": true
+      },
+      {
+        "product_id": 9,
+        "time_ms": 54.22520637512207,
+        "success": true
+      },
+      {
+        "product_id": 70,
+        "time_ms": 52.958011627197266,
+        "success": true
+      },
+      {
+        "product_id": 33,
+        "time_ms": 54.9163818359375,
+        "success": true
+      },
+      {
+        "product_id": 66,
+        "time_ms": 37.8422737121582,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:18.852961+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "913530f2-ac43-4909-9c7e-2b656a6a9741",
+    "create_time_ms": 50.974369049072266,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      34.996986389160156,
+      109.79175567626953,
+      158.83255004882812,
+      202.43406295776367,
+      248.86775016784668
+    ],
+    "timestamp": "2025-11-04T08:04:19.377976+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "95ddde2a-9d36-4c5e-b6e8-75e0c18f3b9d",
+    "product_id": 602,
+    "add_time_ms": 49.604177474975586,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:19.890049+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "ad7e57d3-32ba-49bd-ab4e-caa2d333a761",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 55,
+        "time_ms": 39.97611999511719,
+        "success": true
+      },
+      {
+        "product_id": 22,
+        "time_ms": 60.84799766540527,
+        "success": true
+      },
+      {
+        "product_id": 73,
+        "time_ms": 41.04018211364746,
+        "success": true
+      },
+      {
+        "product_id": 44,
+        "time_ms": 47.70255088806152,
+        "success": true
+      },
+      {
+        "product_id": 26,
+        "time_ms": 54.001808166503906,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:20.452594+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "ea57e858-8c16-4796-9dea-bdd4473f07ac",
+    "create_time_ms": 37.491559982299805,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      41.95880889892578,
+      106.76193237304688,
+      158.8730812072754,
+      234.94505882263184,
+      312.7317428588867
+    ],
+    "timestamp": "2025-11-04T08:04:21.037991+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "5e260ef3-a7b6-4cbf-94de-b8e7504ce9a0",
+    "product_id": 56,
+    "add_time_ms": 62.157630920410156,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:21.580834+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "43ab8382-b465-47f9-8c78-eb318625760b",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 58,
+        "time_ms": 2316.58673286438,
+        "success": true
+      },
+      {
+        "product_id": 3,
+        "time_ms": 47.53565788269043,
+        "success": true
+      },
+      {
+        "product_id": 13,
+        "time_ms": 40.01021385192871,
+        "success": true
+      },
+      {
+        "product_id": 20,
+        "time_ms": 45.05348205566406,
+        "success": true
+      },
+      {
+        "product_id": 37,
+        "time_ms": 43.27082633972168,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:24.417374+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "6df50e74-fa93-4178-8f18-8c5a481c4379",
+    "create_time_ms": 49.979448318481445,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      34.55972671508789,
+      94.66767311096191,
+      154.9971103668213,
+      204.35523986816406,
+      280.34353256225586
+    ],
+    "timestamp": "2025-11-04T08:04:24.987789+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "51c07052-250a-485e-90d5-c8831f98c380",
+    "product_id": 364,
+    "add_time_ms": 39.932966232299805,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:25.464167+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "78e18263-7353-4f9a-b68f-cd83801a77e3",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 86,
+        "time_ms": 59.80038642883301,
+        "success": true
+      },
+      {
+        "product_id": 49,
+        "time_ms": 42.616844177246094,
+        "success": true
+      },
+      {
+        "product_id": 41,
+        "time_ms": 57.6326847076416,
+        "success": true
+      },
+      {
+        "product_id": 20,
+        "time_ms": 43.038129806518555,
+        "success": true
+      },
+      {
+        "product_id": 8,
+        "time_ms": 42.34051704406738,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:26.050925+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "16128aee-423b-412a-b64d-32e443f703de",
+    "create_time_ms": 49.9422550201416,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      38.58613967895508,
+      92.65470504760742,
+      140.65217971801758,
+      214.4465446472168,
+      261.136531829834
+    ],
+    "timestamp": "2025-11-04T08:04:26.587494+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "f0796503-4acb-41a5-93ea-2ea93d59ac27",
+    "product_id": 21,
+    "add_time_ms": 42.3276424407959,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:27.067397+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "d99d0502-7f3d-41ff-bb03-20657478fab9",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 47,
+        "time_ms": 43.758392333984375,
+        "success": true
+      },
+      {
+        "product_id": 55,
+        "time_ms": 39.90006446838379,
+        "success": true
+      },
+      {
+        "product_id": 22,
+        "time_ms": 45.28355598449707,
+        "success": true
+      },
+      {
+        "product_id": 25,
+        "time_ms": 38.369178771972656,
+        "success": true
+      },
+      {
+        "product_id": 80,
+        "time_ms": 43.761491775512695,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:27.610299+00:00"
+  },
+  {
+    "test": "create_then_read",
+    "cart_id": "b03e9f4f-b7af-44e9-9ef5-e7b5425b58cd",
+    "create_time_ms": 50.97651481628418,
+    "read_attempts": 5,
+    "consistent_reads": 5,
+    "consistency_rate": 1.0,
+    "delays_ms": [
+      35.67910194396973,
+      106.03570938110352,
+      154.21724319458008,
+      222.44596481323242,
+      295.63164710998535
+    ],
+    "timestamp": "2025-11-04T08:04:28.184653+00:00"
+  },
+  {
+    "test": "write_then_read_items",
+    "cart_id": "89f17a11-406f-4523-9c8b-40716d47ef1e",
+    "product_id": 829,
+    "add_time_ms": 44.47531700134277,
+    "read_attempts": 5,
+    "item_visible_count": 5,
+    "consistency_rate": 1.0,
+    "timestamp": "2025-11-04T08:04:28.696668+00:00"
+  },
+  {
+    "test": "rapid_updates",
+    "cart_id": "82072dc5-ec30-4475-bf9c-304d19babce7",
+    "updates_sent": 5,
+    "updates_successful": 5,
+    "final_items_count": 5,
+    "updates": [
+      {
+        "product_id": 32,
+        "time_ms": 56.32281303405762,
+        "success": true
+      },
+      {
+        "product_id": 68,
+        "time_ms": 41.14818572998047,
+        "success": true
+      },
+      {
+        "product_id": 57,
+        "time_ms": 54.80003356933594,
+        "success": true
+      },
+      {
+        "product_id": 69,
+        "time_ms": 54.90469932556152,
+        "success": true
+      },
+      {
+        "product_id": 11,
+        "time_ms": 42.461395263671875,
+        "success": true
+      }
+    ],
+    "timestamp": "2025-11-04T08:04:29.262483+00:00"
+  }
+]

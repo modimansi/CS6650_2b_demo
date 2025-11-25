@@ -39,6 +39,22 @@ resource "aws_ecs_task_definition" "this" {
       {
         name  = "WORKER_COUNT"
         value = tostring(var.worker_count)
+      },
+      {
+        name  = "DATABASE_URL"
+        value = var.database_url
+      },
+      {
+        name  = "INIT_DB_SCHEMA"
+        value = "true"
+      },
+      {
+        name  = "DYNAMODB_TABLE_NAME"
+        value = var.dynamodb_table_name
+      },
+      {
+        name  = "CART_STORE_TYPE"
+        value = "dynamodb"
       }
     ]
 
